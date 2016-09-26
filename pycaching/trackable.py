@@ -196,7 +196,7 @@ class Trackable(object):
 
         location_raw = root.find(id="ctl00_ContentBody_BugDetails_BugLocation")
         location_url = location_raw.get("href")
-        if "cache_details" in location_url:
+        if location_url is not None and "cache_details" in location_url:
             self.location = location_url
         else:
             self.location = location_raw.text
